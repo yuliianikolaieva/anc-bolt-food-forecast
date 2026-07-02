@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="uk"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>АНЦ × Bolt Food — Комерційна пропозиція</title>
+<style>
+:root{--green:#34D186;--dark:#2F313F;--grey:#6B7080;--light:#EEF6F1;--line:#E3E7EA;--warn:#E5A13A;--glovo:#FF6B2C}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,-apple-system,sans-serif;background:#0c0f14;color:var(--dark);
+display:flex;flex-direction:column;align-items:center;min-height:100vh}
+#stage{position:relative;width:min(96vw,1120px);aspect-ratio:16/9;background:#fff;
+border-radius:14px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);margin:auto}
+.slide{position:absolute;inset:0;padding:4.6% 5.2%;display:flex;flex-direction:column}
+.kick{color:var(--green);font-weight:700;font-size:1.02vw;letter-spacing:.06em;text-transform:uppercase}
+.bar{width:5%;height:.7vh;background:var(--green);border-radius:3px;margin-bottom:1.2vh}
+h1{font-size:2.5vw;line-height:1.15}
+h2{font-size:2.0vw;margin-bottom:.8vh}
+.logo{position:absolute;top:4.2%;right:5%;font-weight:800;font-size:1.05vw;color:var(--green);
+letter-spacing:.02em}
+.logo span{color:var(--dark)}
+.sub{color:var(--grey);font-size:1.22vw}
+.tiles{display:flex;gap:1.2%;margin-top:2.2vh}
+.tile{flex:1;background:var(--light);border-radius:12px;padding:1.4vw;text-align:center}
+.tile .big{font-size:2.3vw;font-weight:800;color:var(--green)}
+.tile .big.d{color:var(--dark)}
+.tile .lab{font-size:.95vw;color:var(--grey);margin-top:.5vh}
+.dark{background:var(--dark);color:#fff;padding:7% 6%}
+.dark h1{color:#fff;font-size:3.1vw}
+.dark .accent{color:var(--green);font-weight:700}
+.note{color:var(--grey);font-size:1.02vw;margin-top:auto}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.4%;margin-top:2vh}
+.cards.three{grid-template-columns:1fr 1fr 1fr}
+.card{background:var(--light);border-radius:12px;padding:1.2vw 1.4vw;border-left:5px solid var(--green)}
+.card h3{font-size:1.28vw}.card p{font-size:.92vw;color:var(--grey);margin-top:.5vh}
+.scen{display:flex;gap:1.4%;margin-top:2vh}
+.scol{flex:1;border-radius:14px;background:var(--light);padding:1.8vw 1vw;text-align:center}
+.scol.hot{background:var(--green);color:#fff}
+.scol.mid{background:#dff3e8}
+.scol .nm{font-weight:700;font-size:1.25vw}.scol .sh{font-size:.92vw;color:var(--grey)}
+.scol.hot .sh{color:#eafff4}
+.scol .gmv{font-size:2.1vw;font-weight:800;color:var(--green);margin:.5vh 0}
+.scol.hot .gmv{color:#fff}.scol .ord{font-size:1.05vw;font-weight:700}
+.two{display:flex;gap:2%;margin-top:1.2vh}.col{flex:1}
+.coltitle{font-weight:700;font-size:1.22vw;margin-bottom:.6vh}
+.row{display:flex;justify-content:space-between;background:var(--light);border-radius:10px;
+padding:.75vw 1.05vw;margin-top:.7vh;font-size:1.05vw}.row b{color:var(--green)}
+.step{display:flex;align-items:center;gap:.9vw;margin-top:.8vh;font-size:1.05vw}
+.sc{width:1.9vw;height:1.9vw;border-radius:8px;background:var(--green);color:#fff;font-weight:700;
+display:flex;align-items:center;justify-content:center;font-size:.95vw;flex-shrink:0}
+.eco{display:flex;gap:2%;margin-top:2.6vh}
+.ecard{flex:1;background:var(--light);border-radius:14px;overflow:hidden;text-align:center}
+.ecard .hd{background:var(--green);color:#fff;font-weight:700;font-size:1.45vw;padding:1vh 0}
+.ecard .bd{padding:2.2vh 0;font-size:1.7vw;font-weight:800;color:var(--dark);line-height:1.4}
+.caltbl{width:100%;border-collapse:collapse;margin-top:1vh;font-size:.95vw}
+.caltbl th{background:var(--dark);color:#fff;padding:.7vh .7vw;text-align:left;font-size:.9vw}
+.caltbl td{padding:.65vh .7vw;border-bottom:1px solid var(--line);color:var(--grey)}
+.caltbl td:first-child{font-weight:700;color:var(--dark)}
+.caltbl tr:nth-child(even) td{background:var(--light)}
+.caltbl td.g{color:var(--green);font-weight:800}
+.caltbl td.r{color:var(--glovo);font-weight:700}
+.chip{background:var(--light);border-radius:10px;padding:.65vh 1vw;font-size:.98vw;color:var(--dark)}
+.chip b{color:var(--green)}
+.chips{display:flex;gap:1.2%;margin-top:1.2vh;flex-wrap:wrap}
+.bigmsg{background:var(--green);color:#fff;border-radius:12px;padding:1.1vh 1.4vw;margin-top:1.4vh;font-size:1.05vw;text-align:center}
+.bigmsg b{color:#fff}
+.foot{position:absolute;bottom:3%;left:5.2%;right:5.2%;color:var(--grey);font-size:.8vw}
+.comyear{display:flex;gap:1.4%;margin-top:1.2vh}
+.cy{flex:1;background:var(--light);border-radius:14px;padding:1.5vh 1vw;text-align:center}
+.cy.hot{background:var(--green)}
+.cy .yr{font-size:1.05vw;color:var(--grey);font-weight:700}
+.cy.hot .yr{color:#eafff4}
+.cy .pct{font-size:2.7vw;font-weight:800;color:var(--green);margin:.3vh 0}
+.cy.hot .pct{color:#fff}
+.cy .nt{font-size:.82vw;color:var(--grey)}
+.cy.hot .nt{color:#eafff4}
+.promo{display:flex;gap:1.1%;margin-top:1.8vh}
+.pt{flex:1;background:var(--light);border-radius:12px;padding:1vw}
+.pt .pn{width:1.9vw;height:1.9vw;border-radius:8px;background:var(--green);color:#fff;font-weight:800;
+display:flex;align-items:center;justify-content:center;font-size:1vw;margin-bottom:.6vh}
+.pt h4{font-size:1.02vw}.pt p{font-size:.8vw;color:var(--grey);margin-top:.4vh}
+.pbot{display:flex;gap:1.4%;margin-top:1.2vh}
+.pbox{flex:1;background:var(--light);border-radius:12px;padding:1vw 1.2vw;border-left:5px solid var(--green)}
+.pbox.d{border-left-color:var(--dark)}
+.pbox h4{font-size:1.05vw}.pbox p{font-size:.82vw;color:var(--grey);margin-top:.4vh}
+.chartwrap{display:flex;gap:2.4%;margin-top:2vh;align-items:stretch}
+.chartbox{flex:1.7;background:var(--light);border-radius:14px;padding:1.4vh 1.3vw}
+.chartlab{font-size:.92vw;color:var(--green);font-weight:700;margin-bottom:.8vh}
+.bars{display:flex;align-items:flex-end;gap:1%;height:24vh}
+.bcol{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.bk{width:62%;background:#bfe9d3;border-radius:5px 5px 0 0;border-top:.45vh solid var(--green);position:relative}
+.bk.b2{background:#8fd9b3}
+.bcap{font-size:.66vw;color:var(--grey);margin-top:.5vh}
+.bval{position:absolute;top:-1.7vh;left:50%;transform:translateX(-50%);font-size:.62vw;color:var(--dark);font-weight:700;white-space:nowrap}
+.scards{flex:1;display:flex;flex-direction:column;gap:1vh}
+.scd{background:var(--light);border-radius:12px;padding:1vh 1vw}
+.scd .v{font-size:1.6vw;font-weight:800;color:var(--green)}
+.scd .t{font-size:.8vw;color:var(--grey);margin-top:.2vh}
+.legend{display:flex;gap:1.2vw;font-size:.78vw;color:var(--grey);margin-top:.6vh}
+.legend i{display:inline-block;width:.8vw;height:.8vw;border-radius:3px;margin-right:.3vw;vertical-align:middle}
+.vs{display:flex;gap:1.4%;margin-top:1.6vh}
+.vsbox{flex:1;border-radius:14px;padding:1.4vw 1.3vw;border:2px solid var(--line)}
+.vsbox.bad{background:#fff4ee;border-color:#f6d3bd}
+.vsbox.good{background:var(--light);border-color:#bfe9d3}
+.vsbox h4{font-size:1.15vw;margin-bottom:.5vh}
+.vsbox.bad h4{color:var(--glovo)}.vsbox.good h4{color:var(--green)}
+.vsbox ul{margin-left:1.1vw;margin-top:.4vh}
+.vsbox li{font-size:.9vw;color:var(--grey);margin-top:.4vh}
+#nav{display:flex;gap:14px;align-items:center;padding:14px;color:#aab;flex-wrap:wrap;justify-content:center}
+#nav button{background:#1b2330;color:#fff;border:1px solid #2c3647;border-radius:8px;
+padding:7px 14px;cursor:pointer;font-size:14px}
+#nav button:hover{background:#26303f}
+#nav button.exp{background:var(--green);border-color:var(--green);color:#08130c;font-weight:800}
+#nav button.exp:hover{background:#2bbd76}
+#counter{font-size:13px;min-width:52px;text-align:center}
+#dots{display:flex;gap:6px;flex-wrap:wrap;max-width:520px}
+.dot{width:8px;height:8px;border-radius:50%;background:#3a4456;cursor:pointer}
+.dot.on{background:var(--green)}
+</style></head>
+<body>
+<div id="stage"></div>
+<div id="nav">
+  <button onclick="go(-1)">‹ Назад</button>
+  <span id="counter">1 / 14</span>
+  <button onclick="go(1)">Далі ›</button>
+  <button class="exp" id="expBtn" onclick="exportPptx()">⬇ Експорт у .pptx</button>
+  <button class="exp" id="gsBtn" onclick="exportGSlides()" style="background:#f5c542;border-color:#f5c542">⬆ Google Slides</button>
+  <div id="dots"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<script>
+function logo(){return '<div class="logo">Bolt <span>Food</span></div>'}
+const slides=[];
+// 1 · Title
+slides.push(`<div class="slide dark" style="justify-content:center">
+  <div class="kick">Комерційна пропозиція</div>
+  <h1 style="margin:1.4vh 0">Аптека АНЦ <span class="accent">×</span> Bolt&nbsp;Food</h1>
+  <div class="sub" style="color:#c9ced6">Одна з найбільших аптечних мереж України — другий цифровий канал продажів, що додає інкрементальний оборот поверх Glovo та офлайну</div>
+  <div style="margin-top:3vh;color:#9aa0ac;font-size:1.05vw">Україна · Липень 2026</div>
+</div>`);
+// 2 · Meet Bolt ecosystem
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Meet Bolt</div><h2>Вся екосистема в одному застосунку</h2>
+  <div class="eco">
+   ${[['Таксі','40+ країн','500+ міст'],['Доставка','15+ країн','200+ міст'],['Оренда / самокати','20+ країн','200+ міст']].map(e=>`<div class="ecard"><div class="hd">${e[0]}</div><div class="bd">${e[1]}<br>${e[2]}</div></div>`).join('')}
+  </div>
+  <p class="note">Крос-вертикальний ефект: користувачів таксі та Bolt Food ми конвертуємо у покупців аптек АНЦ — нові цифрові клієнти поза вашою офлайн-базою.</p>
+</div>`);
+// 3 · Bolt Food retail зростає
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Bolt Food retail</div><h2>Напрям retail на Bolt Food стабільно зростає</h2>
+  <div class="chartwrap">
+   <div class="chartbox">
+    <div class="chartlab">▲ активні рітейл-локації · 6 міс поспіль</div>
+    <div class="bars">
+     ${[['–5 міс',30],['–4 міс',44],['–3 міс',58],['–2 міс',72],['–1 міс',86],['Зараз',100]].map(b=>`<div class="bcol"><div class="bk" style="height:${b[1]}%"></div><div class="bcap">${b[0]}</div></div>`).join('')}
+    </div>
+    <div class="legend"><span><i style="background:var(--green)"></i>індекс активних рітейл-локацій</span></div>
+   </div>
+   <div class="scards">
+    <div class="scd"><div class="v">+74%</div><div class="t">зростання рітейл-замовлень Bolt в Україні (січ→трав 2026)</div></div>
+    <div class="scd"><div class="v">health</div><div class="t">аптеки та товари для здоров'я — швидкозростаючий сегмент q-commerce</div></div>
+    <div class="scd"><div class="v">↗ частка</div><div class="t">non-food збільшує вагу в замовленнях платформи</div></div>
+   </div>
+  </div>
+  <div class="foot">Індекс активних рітейл-локацій (ілюстративно). +74% — реальні дані Bolt в Україні, січ→трав 2026 · yuliianikolaieva.github.io/getplaced-report</div>
+</div>`);
+// 4 · Про АНЦ
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Про партнера</div><h2>АНЦ — одна з найбільших аптечних мереж України</h2>
+  <div class="tiles">
+   ${[['78','аптек уже онлайн на Glovo'],['37','міст цифрового покриття'],['21,7 тис.','замовлень/міс на Glovo (трав)'],['9,0','замовл./аптеку/день на Glovo'],['+16%','зростання на Glovo (бер→трав)']].map(t=>`<div class="tile"><div class="big">${t[0]}</div><div class="lab">${t[1]}</div></div>`).join('')}
+  </div>
+  <div class="cards" style="margin-top:1.6vh">
+   ${[
+     ['Аптека — ідеальна категорія для q-commerce','Термінові потреби (жарознижувальні, знеболювальні, засоби першої допомоги), БАДи, вітаміни, догляд, гігієна, дитячі товари. Високий driver для швидкої доставки «зараз».'],
+     ['Доведений онлайн-попит','АНЦ уже робить ~21,7 тис. замовлень/міс на Glovo у 37 містах при 9,0 замовл./аптеку/день. Bolt Food — другий канал поверх цього обсягу.']
+   ].map(c=>`<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
+  </div>
+  <div class="foot">Джерело: реальні дані по магазинах Glovo (АНЦ, Shara/Kopiyka/Blagodiya by ANC), травень 2026 · yuliianikolaieva.github.io/getplaced-report</div>
+</div>`);
+// 5 · Аптеки / health на Bolt Food (інші ринки #1)
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Досвід інших ринків · 1/2</div><h2>Аптеки та health — вже частина Bolt Food</h2>
+  <div class="cards">
+   ${[
+     ['Non-food та health — офіційний напрям Bolt','Bolt Food прямо запрошує аптеки, магазини здоров\'я, косметику та інший рітейл. Логістика + аналітика Bolt для росту онлайн-продажів.'],
+     ['Bolt Retail масштабується','Окремий напрям Bolt Retail уже запущено на нових ринках (напр. Румунія). Модель «аптека біля дому за 20–40 хв» переноситься на товари для здоров\'я.'],
+     ['Профіль аптеки ідеальний для q-commerce','Термінові та імпульсні покупки, регулярні повтори (хронічні потреби, догляд). Стабільна частота — висока утримуваність клієнта.'],
+     ['Крос-вертикаль дає готову аудиторію','Клієнти таксі та Food у топ-містах — величезна воронка нових покупців для аптек без витрат на залучення.']
+   ].map(c=>`<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
+  </div>
+  <div class="foot">Джерело: bolt.eu/food/merchant (категорії партнерів), публічні анонси запуску Bolt Retail. Доставка безрецептурних (OTC) товарів.</div>
+</div>`);
+// 6 · Health/pharma на q-commerce — Bolt-ринки (динаміка 6 міс 2026)
+const Q6_MO=['Січ','Лют','Бер','Кві','Тра','Чер'];
+const Q6_RO=[2100,2900,3700,4500,5200,5900];
+const Q6_LT=[1300,1700,2100,2600,3000,3400];
+const Q6_EE=[1000,1400,1800,2100,2400,2700];
+const Q6_LV=[900,1200,1600,1900,2200,2500];
+const Q6MAX=5900;
+const Q6K=v=>(v/1000).toFixed(1).replace('.',',');
+const Q6SER=[['Румунія','var(--green)','#1f8a57',Q6_RO],['Литва','#6ccf9e','#34D186',Q6_LT],['Естонія','#8fd9b3','#6ccf9e',Q6_EE],['Латвія','#bfe9d3','#8fd9b3',Q6_LV]];
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Досвід інших ринків · 2/2</div><h2>Аптеки/health на Bolt Food — Естонія, Румунія, Литва, Латвія</h2>
+  <p class="sub" style="font-size:1.02vw">Health/pharma масштабуються на домашніх ринках Bolt: Балтія (Естонія, Литва, Латвія) + Румунія, де запущено Bolt Retail.</p>
+  <div class="chartwrap" style="margin-top:1.2vh">
+   <div class="chartbox">
+    <div class="chartlab">Замовлення/міс, тис. · 6 міс 2026</div>
+    <div class="bars" style="height:22vh">
+     ${Q6_MO.map((m,k)=>`<div class="bcol"><div style="display:flex;align-items:flex-end;gap:5%;width:100%;height:100%;justify-content:center">
+        ${Q6SER.map(sr=>`<div class="bk" style="height:${(sr[3][k]/Q6MAX*100).toFixed(0)}%;background:${sr[1]};border-top-color:${sr[2]}"><span class="bval" style="font-size:.46vw">${Q6K(sr[3][k])}</span></div>`).join('')}
+      </div><div class="bcap">${m}</div></div>`).join('')}
+    </div>
+    <div class="legend">${Q6SER.map(sr=>`<span><i style="background:${sr[1]}"></i>${sr[0]}</span>`).join('')}</div>
+   </div>
+   <div class="scards">
+    <div class="scd" style="padding:.7vh 1vw"><div class="t" style="margin:0 0 .2vh">6 міс 2026 · замовлення / GMV</div><div class="v" style="font-size:1.05vw;color:var(--grey)">Румунія</div><div class="v" style="font-size:1.15vw">24 300 · ≈ €0,44 млн</div></div>
+    <div class="scd" style="padding:.7vh 1vw"><div class="v" style="font-size:1.05vw;color:var(--grey)">Литва</div><div class="v" style="font-size:1.15vw">14 100 · ≈ €0,25 млн</div></div>
+    <div class="scd" style="padding:.7vh 1vw"><div class="v" style="font-size:1.05vw;color:var(--grey)">Естонія</div><div class="v" style="font-size:1.15vw">11 400 · ≈ €0,21 млн</div></div>
+    <div class="scd" style="padding:.7vh 1vw"><div class="v" style="font-size:1.05vw;color:var(--grey)">Латвія</div><div class="v" style="font-size:1.15vw">10 300 · ≈ €0,19 млн</div></div>
+   </div>
+  </div>
+  <div class="foot">Динаміка ілюстративна (орієнтир категорії health) по ринках Bolt: Естонія, Румунія, Литва, Латвія. Замовлення — тис./міс; GMV = замовлення × ~€18 · yuliianikolaieva.github.io/getplaced-report</div>
+</div>`);
+// 7 · Чому Bolt для АНЦ
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Що ми даємо як компанія</div><h2>Чому Bolt для АНЦ</h2>
+  <div class="cards">
+   ${[
+     ['100% інкрементальний канал','АНЦ = 0 на Bolt Food. Кожне замовлення — поверх Glovo та офлайну. Плюс диверсифікація: не залежите від однієї платформи доставки.'],
+     ['Доведений попит → швидкий старт','На Glovo вже 9,0 замовл./аптеку/день. Ми переносимо цей попит у другий застосунок з готовою аудиторією таксі та Food.'],
+     ['Дірект-інтеграція каталогу','АНЦ передає асортимент і промо-ціни через інтеграцію: реальні ціни, синхронізація стоків, контроль промо. Capex на інтеграцію — на нас.'],
+     ['Прозора комісія 15% + 2% Bolt+','2% лише на замовлення підписників (~15%) → середньозважена 15,30%. Bolt+ дає преміум-аудиторію, що замовляє частіше.']
+   ].map(c=>`<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
+  </div>
+</div>`);
+// 8 · Промо-інструменти
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Промо · як розганяємо замовлення</div><h2>Промо-інструменти Bolt Food</h2>
+  <div class="promo">
+   ${[['1','Знижка на доставку','Частково або 0 ₴. №1 інструмент для залучення нових клієнтів.'],['2','Знижки на каталог','Окремі позиції або весь асортимент — через API або від Bolt.'],['3','Когорти','Таргет на Нових / Втрачених / Активних — різний розмір знижки.'],['4','Банерна підтримка','Банер у вкладці «Магазини» в періоди акцій та сезонів (застуда, алергія).']].map(p=>`<div class="pt"><div class="pn">${p[0]}</div><h4>${p[1]}</h4><p>${p[2]}</p></div>`).join('')}
+  </div>
+  <div class="pbot">
+   <div class="pbox"><h4>Рекомендований старт</h4><p>Безкоштовна доставка для нових клієнтів + MOV трохи вищий за середній чек (~₴600–700).</p></div>
+   <div class="pbox d"><h4>Асортимент і промо-ціни через API</h4><p>АНЦ передає асортимент та фінальні промо-ціни — без +20% ПДВ на суму знижки.</p></div>
+  </div>
+  <div class="foot">Джерело: гайд «Промо-активності на Bolt Food» для партнерів (Україна). Сезонність аптек (застуда, грип, алергія) підсилюємо кампаніями.</div>
+</div>`);
+// 9 · Bolt+
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Bolt+</div><h2>Преміум-аудиторія, що замовляє частіше</h2>
+  <div class="tiles">
+   <div class="tile"><div class="big">3,5–4,1×</div><div class="lab">частіше замовляють підписники Bolt+</div></div>
+   <div class="tile"><div class="big">+12–17%</div><div class="lab">замовлень/міс після оформлення підписки</div></div>
+   <div class="tile"><div class="big d">3 сервіси</div><div class="lab">таксі · Bolt Food · самокати в одній підписці</div></div>
+  </div>
+  <div style="margin-top:1.4vh">
+   ${[
+     ['Доступ до преміум-клієнтів —','найактивніші користувачі з високою частотою замовлень; сім\'ї та люди, що регулярно купують в аптеці.'],
+     ['Надбавка Bolt+ (+2%) —','лише на замовлення підписників; для решти — базова ставка 15%. Частка Bolt+ зазвичай ~15% замовлень.'],
+     ['Повна свобода —','Bolt+ можна вимкнути в будь-який момент; це опція, а не зобовʼязання.']
+   ].map(b=>`<div class="row" style="justify-content:flex-start;gap:.4vw"><b style="color:var(--dark)">${b[0]}</b> <span>${b[1]}</span></div>`).join('')}
+  </div>
+  <div class="bigmsg">Принцип: кожна 1 ₴ додаткової комісії за Bolt+ → ~7 ₴ додаткового обороту.</div>
+</div>`);
+// 10 · АНЦ на Glovo — доказ попиту
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Доказ попиту · реальні дані</div><h2>АНЦ уже лідирує серед аптек на Glovo</h2>
+  <div class="two" style="margin-top:.4vh">
+   <div class="col">
+    <div class="coltitle">Група АНЦ на Glovo (травень 2026)</div>
+    ${[['Аптека АНЦ','16 010 замовл. · 34 аптеки · 15,2/день'],['Kopiyka by ANC','4 338 замовл. · 28 аптек · 5,0/день'],['Shara by ANC','1 267 замовл. · 14 аптек · 2,9/день'],['Разом','21 670 замовл. · 78 аптек · 9,0/день']].map((c,k)=>`<div class="row" style="${k===3?'background:var(--green);color:#fff':''}"><span>${c[0]}</span><b style="${k===3?'color:#fff':''}">${c[1]}</b></div>`).join('')}
+   </div>
+   <div class="col">
+    <div class="coltitle">Що це означає для Bolt</div>
+    ${[
+      ['Попит доведено','9,0 замовл./аптеку/день — сильний онлайн-профіль'],
+      ['Широке покриття','37 міст: Київ, Львів, Одеса, Дніпро, Харків…'],
+      ['Зростання','+16% замовлень на Glovo за бер→трав 2026'],
+      ['Bolt = чистий приріст','другий канал поверх наявних продажів']
+    ].map(c=>`<div class="row"><span>${c[0]}</span><b>${c[1]}</b></div>`).join('')}
+   </div>
+  </div>
+  <div class="foot">Джерело: реальні дані по магазинах Glovo vs Bolt, травень 2026. Bolt-стовпці порожні — АНЦ ще не на Bolt (0 замовлень) · yuliianikolaieva.github.io/getplaced-report</div>
+</div>`);
+// 11 · Наша пропозиція — комісія
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Наша пропозиція</div><h2>Прозора комісія: 15% + 2% Bolt+</h2>
+  <div class="scen">
+   <div class="scol mid"><div class="nm">База</div><div class="sh">на всі замовлення</div><div class="gmv" style="color:var(--dark)">15%</div><div class="sh" style="color:var(--dark)">простий флет по всьому каталогу</div></div>
+   <div class="scol hot"><div class="nm">+ Bolt+</div><div class="sh" style="color:#eafff4">лише підписники (~15%)</div><div class="gmv">+2%</div><div class="sh" style="color:#eafff4">надбавка тільки на замовлення Bolt+</div><div class="ord">середньозважена ≈ 15,30%</div></div>
+  </div>
+  <div class="chips" style="margin-top:1.6vh">
+   <div class="chip">Формула: 15% + (15% × 2%) = <b>15,30%</b> середньозважена</div>
+   <div class="chip">Знижки через API — <b>без +20% ПДВ</b> на знижку</div>
+   <div class="chip">Capex на інтеграцію — <b>на боці Bolt</b></div>
+  </div>
+  <div class="two" style="margin-top:1.4vh">
+   <div class="col"><div class="coltitle">Що це дає партнеру</div>
+    ${[['Прозорість','єдина ставка 15% + опційні 2%'],['Асортимент','повний — нічого не ріжемо'],['Канал','100% інкрементальний оборот']].map(c=>`<div class="row"><span>${c[0]}</span><b>${c[1]}</b></div>`).join('')}
+   </div>
+   <div class="col"><div class="coltitle">Чому Bolt+ окупається</div>
+    <div class="row" style="justify-content:flex-start">Підписники замовляють у 3,5–4,1× частіше</div>
+    <div class="row" style="justify-content:flex-start">+2% застосовується лише до ~15% замовлень</div>
+    <div class="row" style="justify-content:flex-start">Кожна 1 ₴ комісії Bolt+ → ~7 ₴ обороту</div>
+   </div>
+  </div>
+</div>`);
+// 12 · Прогноз 2 пів. 2026
+const FC_MONTHS=['Лип','Сер','Вер','Жов','Лис','Гру'];
+const FC_BASE=[215,3112,4990,6679,7431,8317];
+const FC_OPT=[350,5056,8109,10853,12076,13515];
+const FCMAX=13515;
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Прогноз · Bolt Food · 2 пів. 2026</div><h2>Замовлення/міс — 3 сценарії (лип → гру 2026)</h2>
+  <div class="chips">
+   <div class="chip">База: <b>9,0 замовл./аптеку/день</b> на Glovo · 78 локацій</div>
+   <div class="chip">Середній чек <b>₴600</b></div>
+   <div class="chip">Плавний вихід на «зрілий» темп за 6 міс</div>
+  </div>
+  <div class="chartwrap">
+   <div class="chartbox">
+    <div class="chartlab">Замовлення/міс: Базовий (40% Glovo) vs Оптимістичний (65% Glovo)</div>
+    <div class="bars">
+     ${FC_MONTHS.map((m,k)=>`<div class="bcol"><div style="display:flex;align-items:flex-end;gap:12%;width:100%;height:100%;justify-content:center"><div class="bk" style="height:${(FC_BASE[k]/FCMAX*100).toFixed(0)}%"><span class="bval">${FC_BASE[k].toLocaleString('uk')}</span></div><div class="bk b2" style="height:${(FC_OPT[k]/FCMAX*100).toFixed(0)}%;background:var(--green);border-top-color:#1f8a57"><span class="bval">${FC_OPT[k].toLocaleString('uk')}</span></div></div><div class="bcap">${m}</div></div>`).join('')}
+    </div>
+    <div class="legend"><span><i style="background:#bfe9d3"></i>Базовий</span><span><i style="background:var(--green)"></i>Оптимістичний</span></div>
+   </div>
+   <div class="scards">
+    <div class="scd"><div class="v" style="font-size:1.2vw;color:var(--grey)">Консервативний · 25%</div><div class="v">≈ ₴11,5 млн</div><div class="t">19 215 замовлень / 6 міс</div></div>
+    <div class="scd"><div class="v" style="font-size:1.2vw;color:var(--grey)">Базовий · 40%</div><div class="v">≈ ₴18,4 млн</div><div class="t">30 744 замовлення / 6 міс</div></div>
+    <div class="scd"><div class="v" style="font-size:1.2vw;color:var(--grey)">Оптимістичний · 65%</div><div class="v">≈ ₴30,0 млн</div><div class="t">49 959 замовлень / 6 міс</div></div>
+   </div>
+  </div>
+  <div class="foot">Сценарій = зрілий темп Bolt як % від АНЦ на Glovo (9,0/аптеку/день). Крива виходу: 30%→100% за 6 міс. GMV = замовлення × ₴600. Повністю інкрементальний обсяг поверх Glovo.</div>
+</div>`);
+// 13 · Комісія за сценаріями
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Економіка · 2 пів. 2026</div><h2>Комісія Bolt за сценаріями (лип–гру 2026)</h2>
+  <table class="caltbl">
+   <tr><th>Сценарій</th><th>% від Glovo</th><th>Замовлень</th><th>GMV</th><th>Комісія Bolt · 15,30%</th></tr>
+   <tr><td>Консервативний</td><td>25%</td><td>19 215</td><td>≈ ₴11,53 млн</td><td class="g">≈ ₴1,76 млн</td></tr>
+   <tr><td>Базовий</td><td>40%</td><td>30 744</td><td>≈ ₴18,45 млн</td><td class="g">≈ ₴2,82 млн</td></tr>
+   <tr><td>Оптимістичний</td><td>65%</td><td>49 959</td><td>≈ ₴29,98 млн</td><td class="g">≈ ₴4,59 млн</td></tr>
+  </table>
+  <div class="cards" style="margin-top:1.6vh">
+   ${[
+     ['Це доданий оборот, не перерозподіл','Весь обсяг — інкрементальний поверх Glovo та офлайну. Комісія Bolt — це інвестиція у новий канал, а не в наявні продажі.'],
+     ['Прозора єдина ставка','15% база + 2% лише на ~15% замовлень Bolt+. Жодних прихованих зборів; знижки через API — без ПДВ зверху.']
+   ].map(c=>`<div class="card"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join('')}
+  </div>
+  <div class="foot">Комісія = GMV × 15,30% (15% + 15% Bolt+ × 2%). GMV = замовлення × ₴600. Параметри перераховуються під фактичні дані АНЦ.</div>
+</div>`);
+// 14 · Наступні кроки
+slides.push(`${logo()}<div class="slide"><div class="bar"></div><div class="kick">Наступні кроки</div><h2>Як швидко стартуємо</h2>
+  <div class="two">
+   <div class="col"><div class="coltitle">Що пропонуємо коротко</div>
+    ${[['Комісія','15% + 2% Bolt+ (сер. 15,30%)'],['Канал','100% інкрементальний оборот'],['Асортимент','повний, нічого не ріжемо'],['Bolt+','преміум-аудиторія, опційна надбавка'],['Старт','липень 2026, топ-міста']].map(c=>`<div class="row"><span>${c[0]}</span><b>${c[1]}</b></div>`).join('')}
+   </div>
+   <div class="col"><div class="coltitle">Кроки</div>
+    ${['Підтвердити інтерес і scope пілоту','Узгодити комісійну модель (15% + 2% Bolt+)','Дірект-інтеграція каталогу та цін (capex Bolt)','Запуск у топ-містах + спільний маркетинг','Огляд результатів через 4 тижні'].map((s,k)=>`<div class="step"><div class="sc">${k+1}</div><span>${s}</span></div>`).join('')}
+   </div>
+  </div>
+  <div class="bigmsg">Головне: АНЦ уже має доведений онлайн-попит. З Bolt ви додаєте другий канал з інкрементальним оборотом за прозорою ставкою 15% + 2% Bolt+.</div>
+</div>`);
+</script>
+<script>
+let i=0;const stage=document.getElementById('stage'),dots=document.getElementById('dots');
+stage.innerHTML=slides.map((h,n)=>`<div class="slidewrap" data-i="${n}" style="position:absolute;inset:0;display:${n===0?'block':'none'}">${h}</div>`).join('');
+slides.forEach((_,n)=>{const d=document.createElement('div');d.className='dot'+(n===0?' on':'');d.onclick=()=>set(n);dots.appendChild(d)});
+function set(n){i=Math.max(0,Math.min(slides.length-1,n));
+  document.querySelectorAll('.slidewrap').forEach(w=>w.style.display=(+w.dataset.i===i)?'block':'none');
+  document.querySelectorAll('.dot').forEach((d,k)=>d.classList.toggle('on',k===i));
+  document.getElementById('counter').textContent=(i+1)+' / '+slides.length;}
+function go(d){set(i+d)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')go(1);if(e.key==='ArrowLeft')go(-1)});
+document.getElementById('counter').textContent='1 / '+slides.length;
+const CG='34D186',CD='2F313F',CGR='6B7080',CL='EEF6F1',CO='FF6B2C';
+function exportGSlides(){
+  const b=document.getElementById('gsBtn');const o=b.textContent;b.textContent='Готую файл…';b.disabled=true;
+  exportPptx('gsBtn').then(function(){
+    b.textContent=o;b.disabled=false;
+    window.open('https://docs.google.com/presentation/u/0/','_blank');
+    alert('Файл ANC-Bolt-Food-Proposal.pptx завантажено.\n\nУ Google Slides, що відкрилися:\n1) Створіть/відкрийте презентацію\n2) Файл → Імпортувати слайди → Завантажити\n3) Оберіть завантажений ANC-Bolt-Food-Proposal.pptx\n4) Виберіть усі слайди → Імпортувати');
+  }).catch(function(){b.textContent=o;b.disabled=false;});
+}
+function exportPptx(btnId){
+  const btn=document.getElementById(btnId||'expBtn');const old=btn.textContent;btn.textContent='Генерую…';btn.disabled=true;
+  try{
+    const p=new PptxGenJS();p.defineLayout({name:'W',width:13.33,height:7.5});p.layout='W';
+    p.author='Bolt Food';p.company='Bolt';p.title='АНЦ × Bolt Food';
+    const M=0.7;
+    function head(s,kick,title){
+      s.addText(kick.toUpperCase(),{x:M,y:0.45,w:11,h:0.3,fontSize:11,bold:true,color:CG,charSpacing:1});
+      s.addShape(p.ShapeType.rect,{x:M,y:0.8,w:0.55,h:0.09,fill:{color:CG}});
+      s.addText(title,{x:M,y:0.95,w:11.9,h:0.7,fontSize:24,bold:true,color:CD});
+      s.addText('Bolt Food',{x:11.2,y:0.45,w:1.4,h:0.3,fontSize:12,bold:true,color:CG,align:'right'});
+    }
+    function bullets(arr){return arr.map(t=>({text:t,options:{bullet:{code:'2022'},color:CGR,fontSize:13,paraSpaceAfter:8}}));}
+    // 1 title
+    let s=p.addSlide();s.background={color:CD};
+    s.addText('КОМЕРЦІЙНА ПРОПОЗИЦІЯ',{x:M,y:2.3,w:11,h:0.4,fontSize:13,bold:true,color:CG,charSpacing:1});
+    s.addText([{text:'Аптека АНЦ ',options:{color:'FFFFFF'}},{text:'× ',options:{color:CG}},{text:'Bolt Food',options:{color:'FFFFFF'}}],{x:M,y:2.75,w:12,h:1,fontSize:40,bold:true});
+    s.addText('Одна з найбільших аптечних мереж України — другий цифровий канал продажів, що додає інкрементальний оборот поверх Glovo та офлайну',{x:M,y:3.9,w:10.5,h:0.9,fontSize:15,color:'C9CED6'});
+    s.addText('Україна · Липень 2026',{x:M,y:5.2,w:8,h:0.4,fontSize:13,color:'9AA0AC'});
+    // 2 meet bolt
+    s=p.addSlide();head(s,'Meet Bolt','Вся екосистема в одному застосунку');
+    const eco=[['Таксі','40+ країн · 500+ міст'],['Доставка','15+ країн · 200+ міст'],['Оренда / самокати','20+ країн · 200+ міст']];
+    eco.forEach((e,k)=>{const x=M+k*4.05;s.addShape(p.ShapeType.rect,{x,y:2.0,w:3.7,h:0.55,fill:{color:CG}});s.addText(e[0],{x,y:2.0,w:3.7,h:0.55,fontSize:15,bold:true,color:'FFFFFF',align:'center',valign:'middle'});s.addShape(p.ShapeType.rect,{x,y:2.55,w:3.7,h:1.1,fill:{color:CL}});s.addText(e[1],{x,y:2.55,w:3.7,h:1.1,fontSize:15,bold:true,color:CD,align:'center',valign:'middle'});});
+    s.addText('Крос-вертикальний ефект: користувачів таксі та Bolt Food ми конвертуємо у покупців аптек АНЦ — нові цифрові клієнти поза офлайн-базою.',{x:M,y:4.3,w:11.9,h:0.8,fontSize:13,color:CGR});
+    // 3 bolt food retail зростає
+    s=p.addSlide();head(s,'Bolt Food retail','Напрям retail на Bolt Food стабільно зростає');
+    s.addChart(p.ChartType.bar,[{name:'Активні рітейл-локації (індекс)',labels:['–5 міс','–4 міс','–3 міс','–2 міс','–1 міс','Зараз'],values:[30,44,58,72,86,100]}],{x:M,y:2.0,w:7.4,h:3.7,barDir:'col',chartColors:[CG],showLegend:false,showTitle:false,catAxisLabelColor:CGR,valAxisLabelColor:CGR,showValue:false});
+    const rg=[['+74%','зростання рітейл-замовлень Bolt в Україні (січ→трав 2026)'],['health','аптеки та товари для здоров\'я — швидкозростаючий сегмент q-commerce'],['↗ частка','non-food збільшує вагу в замовленнях платформи']];
+    rg.forEach((n,k)=>{const y=2.0+k*1.25;s.addShape(p.ShapeType.rect,{x:8.35,y,w:4.25,h:1.1,fill:{color:CL},rectRadius:0.08});s.addText(n[0],{x:8.5,y:y+0.1,w:3.95,h:0.42,fontSize:16,bold:true,color:CG});s.addText(n[1],{x:8.5,y:y+0.5,w:3.95,h:0.55,fontSize:10.5,color:CGR});});
+    s.addText('Індекс активних рітейл-локацій (ілюстративно). +74% — реальні дані Bolt в Україні, січ→трав 2026.',{x:M,y:6.8,w:11.9,h:0.3,fontSize:9,color:CGR});
+    // 4 про партнера
+    s=p.addSlide();head(s,'Про партнера','АНЦ — одна з найбільших аптечних мереж України');
+    const bi=[['78','аптек на Glovo'],['37','міст'],['21,7 тис.','замовл./міс (трав)'],['9,0','замовл./аптеку/день'],['+16%','зростання бер→трав']];
+    bi.forEach((n,k)=>{const x=M+k*2.42;s.addShape(p.ShapeType.rect,{x,y:1.9,w:2.25,h:1.4,fill:{color:CL},rectRadius:0.1});s.addText(n[0],{x,y:2.05,w:2.25,h:0.6,fontSize:19,bold:true,color:CG,align:'center'});s.addText(n[1],{x,y:2.7,w:2.25,h:0.5,fontSize:10,color:CGR,align:'center'});});
+    s.addText(bullets(['Аптека — ідеальна категорія для q-commerce: термінові потреби (жарознижувальні, знеболювальні), БАДи, вітаміни, догляд, гігієна, дитячі товари.','Доведений онлайн-попит: АНЦ уже робить ~21,7 тис. замовлень/міс на Glovo у 37 містах при 9,0 замовл./аптеку/день. Bolt Food — другий канал поверх цього обсягу.']),{x:M,y:3.6,w:11.9,h:1.6});
+    s.addText('Джерело: реальні дані по магазинах Glovo (АНЦ + Shara/Kopiyka/Blagodiya by ANC), травень 2026.',{x:M,y:6.8,w:11.9,h:0.3,fontSize:9,color:CGR});
+    // 5 non-food other markets
+    s=p.addSlide();head(s,'Досвід інших ринків · 1/2','Аптеки та health — вже частина Bolt Food');
+    s.addText(bullets(['Non-food та health — офіційний напрям Bolt: аптеки, магазини здоров\'я, косметика, інший рітейл.','Bolt Retail масштабується на нових ринках (напр. Румунія): модель «аптека біля дому за 20–40 хв».','Профіль аптеки ідеальний для q-commerce: термінові та імпульсні покупки, регулярні повтори → висока утримуваність.','Крос-вертикаль дає готову аудиторію: клієнти таксі та Food — воронка нових покупців без витрат на залучення.']),{x:M,y:2.0,w:11.9,h:3.5});
+    s.addText('Джерело: bolt.eu/food/merchant, публічні анонси Bolt Retail. Доставка безрецептурних (OTC) товарів.',{x:M,y:6.8,w:11.9,h:0.3,fontSize:9,color:CGR});
+    // 6 pharma other markets chart
+    s=p.addSlide();head(s,'Досвід інших ринків · 2/2','Аптеки/health на Bolt Food — Естонія, Румунія, Литва, Латвія');
+    s.addText('Health/pharma масштабуються на домашніх ринках Bolt: Балтія (Естонія, Литва, Латвія) + Румунія, де запущено Bolt Retail.',{x:M,y:1.65,w:11.9,h:0.5,fontSize:12,color:CGR});
+    const q6lab=['Січ','Лют','Бер','Кві','Тра','Чер'];
+    s.addChart(p.ChartType.bar,[
+      {name:'Румунія',labels:q6lab,values:[2100,2900,3700,4500,5200,5900]},
+      {name:'Литва',labels:q6lab,values:[1300,1700,2100,2600,3000,3400]},
+      {name:'Естонія',labels:q6lab,values:[1000,1400,1800,2100,2400,2700]},
+      {name:'Латвія',labels:q6lab,values:[900,1200,1600,1900,2200,2500]}
+    ],{x:M,y:2.3,w:8.0,h:3.6,barDir:'col',chartColors:['34D186','6CCF9E','8FD9B3','BFE9D3'],showLegend:true,legendPos:'b',legendColor:CGR,showTitle:false,catAxisLabelColor:CGR,valAxisLabelColor:CGR,showValue:true,dataLabelFontSize:7,dataLabelColor:CD});
+    s.addText('Замовлення/міс · 6 міс 2026',{x:M,y:5.9,w:8,h:0.3,fontSize:9.5,italic:true,color:CGR});
+    s.addText('6 міс 2026 · замовлення / GMV',{x:9.05,y:1.95,w:3.55,h:0.4,fontSize:12,bold:true,color:CD});
+    [['Румунія','24 300 · ≈ €0,44 млн'],['Литва','14 100 · ≈ €0,25 млн'],['Естонія','11 400 · ≈ €0,21 млн'],['Латвія','10 300 · ≈ €0,19 млн']].forEach((n,k)=>{const y=2.4+k*0.92;s.addShape(p.ShapeType.rect,{x:9.05,y,w:3.55,h:0.78,fill:{color:CL},rectRadius:0.08});s.addText(n[0],{x:9.2,y:y+0.06,w:3.25,h:0.32,fontSize:10.5,color:CGR});s.addText(n[1],{x:9.2,y:y+0.38,w:3.25,h:0.36,fontSize:12.5,bold:true,color:CG});});
+    s.addText('Динаміка ілюстративна (орієнтир категорії health) по ринках Bolt. GMV = замовлення × ~€18.',{x:M,y:6.75,w:11.9,h:0.4,fontSize:9,color:CGR});
+    // 7 why bolt
+    s=p.addSlide();head(s,'Що ми даємо як компанія','Чому Bolt для АНЦ');
+    s.addText(bullets(['100% інкрементальний канал: АНЦ = 0 на Bolt Food. Кожне замовлення — поверх Glovo та офлайну + диверсифікація.','Доведений попит → швидкий старт: на Glovo вже 9,0 замовл./аптеку/день; переносимо цей попит у другий застосунок.','Дірект-інтеграція: АНЦ передає асортимент і промо-ціни; реальні ціни, синхронізація стоків, контроль промо. Capex — на нас.','Прозора комісія 15% + 2% Bolt+ (2% лише на ~15% замовлень підписників) → середньозважена 15,30%.']),{x:M,y:2.0,w:11.9,h:3.5});
+    // 8 promo
+    s=p.addSlide();head(s,'Промо','Промо-інструменти Bolt Food');
+    s.addText(bullets(['Знижка на доставку (частково або 0 ₴) — №1 інструмент для залучення нових клієнтів.','Знижки на каталог — окремі позиції або весь асортимент, через API або від Bolt.','Когорти — таргет на Нових / Втрачених / Активних.','Банерна підтримка — банер у вкладці «Магазини» в періоди акцій і сезонів (застуда, алергія).','Асортимент і промо-ціни через API — АНЦ передає асортимент та фінальні промо-ціни, без +20% ПДВ на суму знижки.','Рекомендований старт: безкоштовна доставка для нових клієнтів + MOV ~₴600–700.']),{x:M,y:2.0,w:11.9,h:4.2});
+    // 9 bolt+
+    s=p.addSlide();head(s,'Bolt+','Преміум-аудиторія, що замовляє частіше');
+    const bp=[['3,5–4,1×','частіше замовляють підписники'],['+12–17%','замовлень/міс після підписки'],['3 сервіси','таксі · Food · самокати']];
+    bp.forEach((n,k)=>{const x=M+k*4.05;s.addShape(p.ShapeType.rect,{x,y:1.95,w:3.7,h:1.3,fill:{color:CL},rectRadius:0.1});s.addText(n[0],{x,y:2.1,w:3.7,h:0.55,fontSize:19,bold:true,color:CG,align:'center'});s.addText(n[1],{x,y:2.65,w:3.7,h:0.55,fontSize:10.5,color:CGR,align:'center'});});
+    s.addText(bullets(['Надбавка Bolt+ (+2%) — лише на замовлення підписників (~15%); для решти базова ставка 15%.','Профіль сімей та регулярних покупців аптеки збігається з аудиторією Bolt+.','Повна свобода: Bolt+ можна вимкнути будь-коли. Кожна 1 ₴ комісії Bolt+ → ~7 ₴ обороту.']),{x:M,y:3.5,w:11.9,h:2.2});
+    // 10 ANC on Glovo proof
+    s=p.addSlide();head(s,'Доказ попиту · реальні дані','АНЦ уже лідирує серед аптек на Glovo');
+    s.addTable([
+      [{text:'Група АНЦ на Glovo (травень 2026)',options:{bold:true,color:'FFFFFF',fill:CD}},{text:'Замовлень',options:{bold:true,color:'FFFFFF',fill:CD}},{text:'Аптек',options:{bold:true,color:'FFFFFF',fill:CD}},{text:'На аптеку/день',options:{bold:true,color:'FFFFFF',fill:CD}}],
+      ['Аптека АНЦ','16 010','34','15,2'],
+      ['Kopiyka by ANC','4 338','28','5,0'],
+      ['Shara by ANC','1 267','14','2,9'],
+      [{text:'Разом',options:{bold:true}},{text:'21 670',options:{bold:true}},{text:'78',options:{bold:true}},{text:'9,0',options:{bold:true,color:CG}}]
+    ],{x:M,y:2.1,w:11.9,fontSize:13,border:{type:'solid',color:'E3E7EA',pt:1},rowH:0.5,valign:'middle'});
+    s.addText(bullets(['Попит доведено: 9,0 замовл./аптеку/день — сильний онлайн-профіль.','Широке покриття: 37 міст (Київ, Львів, Одеса, Дніпро, Харків…).','Зростання +16% замовлень на Glovo за бер→трав 2026.','Bolt = чистий приріст: другий канал поверх наявних продажів (АНЦ ще не на Bolt — 0 замовлень).']),{x:M,y:5.0,w:11.9,h:1.6});
+    s.addText('Джерело: реальні дані по магазинах Glovo vs Bolt, травень 2026.',{x:M,y:6.8,w:11.9,h:0.3,fontSize:9,color:CGR});
+    // 11 offer commission
+    s=p.addSlide();head(s,'Наша пропозиція','Прозора комісія: 15% + 2% Bolt+');
+    s.addShape(p.ShapeType.rect,{x:M,y:2.0,w:5.75,h:2.2,fill:{color:'DFF3E8'},rectRadius:0.1});
+    s.addText('База',{x:M,y:2.15,w:5.75,h:0.4,fontSize:15,bold:true,color:CD,align:'center'});
+    s.addText('15%',{x:M,y:2.55,w:5.75,h:0.9,fontSize:40,bold:true,color:CD,align:'center'});
+    s.addText('на всі замовлення · простий флет по всьому каталогу',{x:M,y:3.5,w:5.75,h:0.6,fontSize:12,color:CGR,align:'center'});
+    s.addShape(p.ShapeType.rect,{x:6.85,y:2.0,w:5.75,h:2.2,fill:{color:CG},rectRadius:0.1});
+    s.addText('+ Bolt+',{x:6.85,y:2.15,w:5.75,h:0.4,fontSize:15,bold:true,color:'FFFFFF',align:'center'});
+    s.addText('+2%',{x:6.85,y:2.55,w:5.75,h:0.9,fontSize:40,bold:true,color:'FFFFFF',align:'center'});
+    s.addText('лише на замовлення підписників (~15%) · середньозважена ≈ 15,30%',{x:6.85,y:3.5,w:5.75,h:0.6,fontSize:12,color:'EAFFF4',align:'center'});
+    s.addText(bullets(['Формула: 15% + (15% × 2%) = 15,30% середньозважена.','Знижки через API — без +20% ПДВ на знижку. Capex на інтеграцію — на боці Bolt.','Асортимент залишається повним — нічого не ріжемо; канал 100% інкрементальний.','Bolt+ окупається: підписники замовляють у 3,5–4,1× частіше; +2% лише на ~15% замовлень.']),{x:M,y:4.5,w:11.9,h:2.2});
+    // 12 forecast
+    s=p.addSlide();head(s,'Прогноз · 2 пів. 2026','Замовлення/міс — 3 сценарії (лип → гру 2026)');
+    s.addText('База: 9,0 замовл./аптеку/день на Glovo · 78 локацій · середній чек ₴600 · плавний вихід на зрілий темп за 6 міс.',{x:M,y:1.7,w:11.9,h:0.4,fontSize:12,color:CGR});
+    const fcHead=[{text:'Сценарій',options:{bold:true,color:'FFFFFF',fill:CD}},{text:'Зрілий темп vs Glovo',options:{bold:true,color:'FFFFFF',fill:CD}},{text:'Замовлень 6 міс',options:{bold:true,color:'FFFFFF',fill:CD}},{text:'GMV 6 міс',options:{bold:true,color:'FFFFFF',fill:CD}}];
+    s.addTable([fcHead,
+      ['Консервативний','25%','19 215','≈ ₴11,53 млн'],
+      ['Базовий','40%','30 744','≈ ₴18,45 млн'],
+      [{text:'Оптимістичний',options:{bold:true}},{text:'65%',options:{bold:true}},{text:'49 959',options:{bold:true}},{text:'≈ ₴29,98 млн',options:{bold:true,color:CG}}]
+    ],{x:M,y:2.3,w:11.9,fontSize:13,border:{type:'solid',color:'E3E7EA',pt:1},rowH:0.55,valign:'middle'});
+    const mo=['Лип','Сер','Вер','Жов','Лис','Гру'];
+    const ob=[215,3112,4990,6679,7431,8317];
+    const oo=[350,5056,8109,10853,12076,13515];
+    const omax=13515;
+    const cx0=M,cy0=4.6,cw=11.9,ch=2.0,bw=cw/6;
+    oo.forEach((v,k)=>{const cxx=cx0+k*bw;const h1=ob[k]/omax*ch,h2=v/omax*ch;s.addShape(p.ShapeType.rect,{x:cxx+bw*0.20,y:cy0+ch-h1,w:bw*0.25,h:h1,fill:{color:'BFE9D3'}});s.addShape(p.ShapeType.rect,{x:cxx+bw*0.52,y:cy0+ch-h2,w:bw*0.25,h:h2,fill:{color:CG}});s.addText(mo[k],{x:cxx,y:cy0+ch+0.03,w:bw,h:0.25,fontSize:9,color:CGR,align:'center'});});
+    s.addText('■ Базовий   ■ Оптимістичний   ·   GMV = замовлення × ₴600 · повністю інкрементальний обсяг поверх Glovo',{x:M,y:6.75,w:11.9,h:0.3,fontSize:9.5,color:CGR});
+    // 13 commission by scenario
+    s=p.addSlide();head(s,'Економіка · 2 пів. 2026','Комісія Bolt за сценаріями (лип–гру 2026)');
+    s.addTable([
+      [{text:'Сценарій',options:{bold:true,color:'FFFFFF',fill:CD}},{text:'% від Glovo',options:{bold:true,color:'FFFFFF',fill:CD}},{text:'Замовлень',options:{bold:true,color:'FFFFFF',fill:CD}},{text:'GMV',options:{bold:true,color:'FFFFFF',fill:CD}},{text:'Комісія Bolt · 15,30%',options:{bold:true,color:'FFFFFF',fill:CD}}],
+      ['Консервативний','25%','19 215','≈ ₴11,53 млн',{text:'≈ ₴1,76 млн',options:{color:CG,bold:true}}],
+      ['Базовий','40%','30 744','≈ ₴18,45 млн',{text:'≈ ₴2,82 млн',options:{color:CG,bold:true}}],
+      ['Оптимістичний','65%','49 959','≈ ₴29,98 млн',{text:'≈ ₴4,59 млн',options:{color:CG,bold:true}}]
+    ],{x:M,y:2.1,w:11.9,fontSize:12,border:{type:'solid',color:'E3E7EA',pt:1},rowH:0.55,valign:'middle'});
+    s.addText(bullets(['Це доданий оборот, не перерозподіл: весь обсяг інкрементальний поверх Glovo та офлайну.','Прозора єдина ставка: 15% + 2% лише на ~15% замовлень Bolt+. Знижки через API — без ПДВ зверху.']),{x:M,y:4.7,w:11.9,h:1.4});
+    s.addText('Комісія = GMV × 15,30% (15% + 15% Bolt+ × 2%). GMV = замовлення × ₴600.',{x:M,y:6.8,w:11.9,h:0.3,fontSize:9.5,color:CGR});
+    // 14 next steps
+    s=p.addSlide();head(s,'Наступні кроки','Як швидко стартуємо');
+    s.addText([{text:'Що пропонуємо коротко',options:{bold:true,fontSize:15,color:CD,paraSpaceAfter:8}},
+      ...bullets(['Комісія: 15% + 2% Bolt+ (середньозважена 15,30%)','Канал 100% інкрементальний — оборот поверх Glovo','Асортимент повний, нічого не ріжемо','Bolt+ — преміум-аудиторія, опційна надбавка','Старт: липень 2026, топ-міста'])],{x:M,y:2.0,w:5.75,h:3.6});
+    s.addText([{text:'Кроки',options:{bold:true,fontSize:15,color:CD,paraSpaceAfter:8}},
+      ...['Підтвердити інтерес і scope пілоту','Узгодити комісійну модель (15% + 2% Bolt+)','Дірект-інтеграція каталогу та цін (capex Bolt)','Запуск у топ-містах + спільний маркетинг','Огляд результатів через 4 тижні'].map((t,k)=>({text:(k+1)+'. '+t,options:{color:CGR,fontSize:13,paraSpaceAfter:8}}))],{x:6.85,y:2.0,w:5.75,h:3.6});
+    s.addShape(p.ShapeType.rect,{x:M,y:5.9,w:11.9,h:1.0,fill:{color:CG},rectRadius:0.1});
+    s.addText('Головне: АНЦ уже має доведений онлайн-попит. З Bolt ви додаєте другий канал з інкрементальним оборотом за прозорою ставкою 15% + 2% Bolt+.',{x:M+0.3,y:5.9,w:11.3,h:1.0,fontSize:13,bold:true,color:'FFFFFF',align:'center',valign:'middle'});
+
+    return p.writeFile({fileName:'ANC-Bolt-Food-Proposal.pptx'}).then(()=>{btn.textContent=old;btn.disabled=false;});
+  }catch(err){alert('Помилка експорту: '+err.message);btn.textContent=old;btn.disabled=false;return Promise.reject(err);}
+}
+</script>
+</body></html>
