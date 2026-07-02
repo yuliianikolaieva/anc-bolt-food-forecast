@@ -126,6 +126,7 @@ padding:7px 14px;cursor:pointer;font-size:14px}
   <div id="dots"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
 function logo(){return '<div class="logo"><b style="color:var(--green)">АНЦ</b><b style="color:var(--dark)">+</b> <span style="color:var(--grey);font-weight:400">×</span> Bolt <span>Food</span></div>'}
 const slides=[];
@@ -371,7 +372,34 @@ function exportGSlides(){
     alert('Файл ANC-Bolt-Food-Proposal.pptx завантажено.\n\nУ Google Slides, що відкрилися:\n1) Створіть/відкрийте презентацію\n2) Файл → Імпортувати слайди → Завантажити\n3) Оберіть завантажений ANC-Bolt-Food-Proposal.pptx\n4) Виберіть усі слайди → Імпортувати');
   }).catch(function(){b.textContent=o;b.disabled=false;});
 }
-function exportPptx(btnId){
+// Image-based export: renders each HTML slide to a full-bleed 1920x1080 PNG on a 10x5.625in (16:9) slide,
+// matching the reference "Будинок іграшок" .pptx format (pixel-perfect fidelity to the on-screen design).
+async function exportPptxImages(btnId){
+  const btn=document.getElementById(btnId||'expBtn');const old=btn.textContent;btn.disabled=true;
+  try{
+    if(typeof html2canvas==='undefined') throw new Error('html2canvas не завантажено (перевірте інтернет)');
+    const stage=document.getElementById('stage');
+    const wraps=[].slice.call(document.querySelectorAll('.slidewrap'));
+    const prev=i, stageW=stage.clientWidth, stageH=stage.clientHeight, scale=1920/stageW;
+    const saved=wraps.map(w=>w.style.display);
+    const p=new PptxGenJS();p.defineLayout({name:'ANC169',width:10,height:5.625});p.layout='ANC169';
+    p.author='Bolt Food';p.company='Bolt';p.title='АНЦ × Bolt Food';
+    for(let k=0;k<wraps.length;k++){
+      btn.textContent='Слайд '+(k+1)+'/'+wraps.length+'…';
+      wraps.forEach((w,j)=>{w.style.display=(j===k)?'block':'none';});
+      await new Promise(r=>setTimeout(r,90));
+      const canvas=await html2canvas(wraps[k],{scale:scale,width:stageW,height:stageH,backgroundColor:'#ffffff',useCORS:true,logging:false});
+      const s=p.addSlide();
+      s.addImage({data:canvas.toDataURL('image/png'),x:0,y:0,w:10,h:5.625});
+    }
+    wraps.forEach((w,j)=>{w.style.display=saved[j];});
+    set(prev);
+    return p.writeFile({fileName:'ANC-Bolt-Food-Proposal.pptx'}).then(()=>{btn.textContent=old;btn.disabled=false;});
+  }catch(err){alert('Помилка експорту: '+err.message);btn.textContent=old;btn.disabled=false;return Promise.reject(err);}
+}
+function exportPptx(btnId){ return exportPptxImages(btnId); }
+// Legacy native-shape builder (kept for reference, not used).
+function exportPptxNative(btnId){
   const btn=document.getElementById(btnId||'expBtn');const old=btn.textContent;btn.textContent='Генерую…';btn.disabled=true;
   try{
     const p=new PptxGenJS();p.defineLayout({name:'W',width:13.33,height:7.5});p.layout='W';
