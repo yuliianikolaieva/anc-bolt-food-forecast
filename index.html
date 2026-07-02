@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>АНЦ на Bolt Food — Прогноз замовлень і GMV (2 пів. 2026)</title>
+<title>АНЦ на Bolt Food — Прогноз замовлень і GMV (12 міс)</title>
 <style>
   :root{
     --bg:#eef1f7; --panel:#ffffff; --panel2:#f6f8fc; --line:#dfe5ee;
     --text:#13203a; --muted:#5d6b85; --soft:#33425d;
     --accent:#2563eb; --accent2:#0e7faa;
     --cons:#b7791f; --base:#2563eb; --opt:#15a34a; --glovo:#ff6b2c; --warn:#b7791f;
+    --anc:#15a34a;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -17,10 +18,15 @@
        background:radial-gradient(1200px 600px at 80% -10%,#ffffff 0%,var(--bg) 55%);color:var(--text);line-height:1.55}
   a{color:var(--accent)}
 
+  .anclogo{display:inline-flex;align-items:center;gap:5px;font-weight:800;color:#fff;background:var(--anc);
+       border-radius:9px;padding:4px 10px;font-size:14px;letter-spacing:.6px}
+  .anclogo .cross{color:var(--anc);background:#fff;border-radius:4px;width:15px;height:15px;display:inline-flex;
+       align-items:center;justify-content:center;font-size:13px;line-height:1;font-weight:900}
+
   nav.topnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
        border-bottom:1px solid var(--line)}
   nav.topnav .inner{max-width:1140px;margin:0 auto;padding:10px 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-  nav.topnav .brand{font-weight:800;font-size:13px;color:var(--accent2);margin-right:8px;white-space:nowrap}
+  nav.topnav .brand{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;color:var(--accent2);margin-right:8px;white-space:nowrap}
   nav.topnav a{color:var(--muted);text-decoration:none;font-size:13px;padding:6px 11px;border-radius:8px;border:1px solid transparent;white-space:nowrap}
   nav.topnav a:hover{background:#eef2f8;color:var(--text)}
   nav.topnav .langtabs{margin-left:auto;display:flex;gap:6px}
@@ -31,6 +37,9 @@
   section[id]{scroll-margin-top:64px}
   header.hero{padding:34px 30px;border:1px solid var(--line);border-radius:18px;
        background:linear-gradient(135deg,#ffffff 0%,#eef3fb 100%);position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(20,40,80,.05)}
+  .hero .cobrand{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-weight:800;color:var(--soft);font-size:15px}
+  .hero .cobrand .x{color:var(--muted);font-weight:600}
+  .hero .cobrand .bolt{color:var(--anc)}
   .hero h1{margin:0 0 6px;font-size:28px;letter-spacing:.2px}
   .hero .sub{color:var(--soft);font-size:15px;max-width:840px}
   .hero .tag{display:inline-block;margin-bottom:14px;font-size:12px;letter-spacing:2px;text-transform:uppercase;
@@ -58,7 +67,7 @@
   .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 
   table.matrix{border-collapse:collapse;width:100%;margin-top:12px;font-size:13px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  table.matrix th,table.matrix td{border:1px solid var(--line);padding:9px 10px;text-align:right}
+  table.matrix th,table.matrix td{border:1px solid var(--line);padding:8px 10px;text-align:right}
   table.matrix th{background:#eef2f8;color:var(--muted);font-weight:600;text-align:right}
   table.matrix th:first-child,table.matrix td:first-child{text-align:left}
   table.matrix td.axis{background:#f3f6fb;color:var(--soft);font-weight:700;text-align:left}
@@ -88,7 +97,7 @@
 
 <nav class="topnav">
   <div class="inner">
-    <span class="brand">АНЦ · Bolt Food</span>
+    <span class="brand"><span class="anclogo">АНЦ<span class="cross">+</span></span> · Bolt Food</span>
     <a href="#top">Ключові цифри</a>
     <a href="#assumptions">Припущення</a>
     <a href="#benchmarks">Бенчмарки</a>
@@ -106,12 +115,13 @@
 
   <header class="hero" id="top">
     <span class="tag">Планування запуску · Аптечний рітейл України</span>
+    <div class="cobrand"><span class="anclogo">АНЦ<span class="cross">+</span></span> <span class="x">×</span> <span class="bolt">Bolt Food</span></div>
     <h1>АНЦ на Bolt Food — прогноз замовлень і GMV</h1>
-    <p class="sub">Прогноз обсягу замовлень і GMV для запуску мережі АНЦ (Аптека низьких цін) на Bolt Food, липень–грудень 2026. Бенчмарки взяті з реальних даних по магазинах у <a href="https://yuliianikolaieva.github.io/getplaced-report/" target="_blank" rel="noopener">порівнянні Glovo vs Bolt (січ–трав 2026)</a>. Модель прив'язана до фактичних показників АНЦ на Glovo та динаміки інших рітейл-мереж, присутніх на обох платформах.</p>
+    <p class="sub">Прогноз обсягу замовлень і GMV для запуску мережі АНЦ (Аптека низьких цін) на Bolt Food, 12 місяців: серпень 2026 – липень 2027. Аналіз охоплює всі бренди групи: <b>Аптека АНЦ, Kopiyka by ANC, Shara by ANC, Blagodiya by ANC</b>. Бенчмарки взяті з реальних даних по магазинах у <a href="https://yuliianikolaieva.github.io/getplaced-report/" target="_blank" rel="noopener">порівнянні Glovo vs Bolt (січ–трав 2026)</a>.</p>
     <div class="meta">
-      <span class="pill">Період: лип–гру 2026</span>
-      <span class="pill">Старт липня: з 27.07 (~5 днів)</span>
-      <span class="pill">Середній чек: ₴600</span>
+      <span class="pill">Період: серп 2026 – лип 2027 (12 міс)</span>
+      <span class="pill">Старт: серпень 2026</span>
+      <span class="pill">Середній чек: ₴700</span>
       <span class="pill">Локації: 40 → 60 → 78</span>
       <span class="pill">Сценарії: Консерв. · Базовий · Оптиміст.</span>
       <span class="pill">Джерело бенчмарків: дані по магазинах, травень 2026</span>
@@ -120,19 +130,19 @@
 
   <!-- TOP-LINE -->
   <section id="top">
-  <h2 class="section"><span class="bar"></span>Ключові цифри — 2 пів. 2026</h2>
-  <p class="section-desc">Сукупні замовлення та GMV за липень–грудень 2026 у трьох сценаріях, а також run-rate, досягнутий у грудні.</p>
+  <h2 class="section"><span class="bar"></span>Ключові цифри — рік 1 (серп 2026 – лип 2027)</h2>
+  <p class="section-desc">Сукупні замовлення та GMV за 12 місяців у трьох сценаріях, а також зрілий run-rate.</p>
   <div class="grid kpis">
-    <div class="kpi base"><div class="n">~30,7 тис.</div><div class="l">Замовлення 2 пів. · Базовий</div></div>
-    <div class="kpi base"><div class="n">~₴18,4 млн</div><div class="l">GMV 2 пів. · Базовий</div></div>
-    <div class="kpi opt"><div class="n">~50,0 тис.</div><div class="l">Замовлення 2 пів. · Оптиміст.</div></div>
-    <div class="kpi opt"><div class="n">~₴30,0 млн</div><div class="l">GMV 2 пів. · Оптиміст.</div></div>
-    <div class="kpi cons"><div class="n">~19,2 тис.</div><div class="l">Замовлення 2 пів. · Консерв.</div></div>
-    <div class="kpi cons"><div class="n">~₴11,5 млн</div><div class="l">GMV 2 пів. · Консерв.</div></div>
-    <div class="kpi"><div class="n">168 – 436</div><div class="l">Замовлень/день у грудні</div></div>
-    <div class="kpi"><div class="n">78</div><div class="l">Локацій на повному покритті (вер+)</div></div>
-    <div class="kpi glovo"><div class="n">9,0</div><div class="l">АНЦ на Glovo: замовл./магазин/день (зрілий)</div></div>
-    <div class="kpi"><div class="n">2,2 – 5,6</div><div class="l">Bolt замовл./локацію/день у грудні</div></div>
+    <div class="kpi base"><div class="n">~82,5 тис.</div><div class="l">Замовлення рік 1 · Базовий</div></div>
+    <div class="kpi base"><div class="n">~₴57,7 млн</div><div class="l">GMV рік 1 · Базовий</div></div>
+    <div class="kpi opt"><div class="n">~134,0 тис.</div><div class="l">Замовлення рік 1 · Оптиміст.</div></div>
+    <div class="kpi opt"><div class="n">~₴93,8 млн</div><div class="l">GMV рік 1 · Оптиміст.</div></div>
+    <div class="kpi cons"><div class="n">~51,6 тис.</div><div class="l">Замовлення рік 1 · Консерв.</div></div>
+    <div class="kpi cons"><div class="n">~₴36,1 млн</div><div class="l">GMV рік 1 · Консерв.</div></div>
+    <div class="kpi"><div class="n">175 – 454</div><div class="l">Замовлень/день на зрілості</div></div>
+    <div class="kpi"><div class="n">78</div><div class="l">Локацій на повному покритті (жов+)</div></div>
+    <div class="kpi glovo"><div class="n">9,0</div><div class="l">АНЦ на Glovo: замовл./аптеку/день (зрілий)</div></div>
+    <div class="kpi"><div class="n">2,2 – 5,8</div><div class="l">Bolt замовл./локацію/день (зрілий)</div></div>
     <div class="kpi glovo"><div class="n">21,7 тис.</div><div class="l">АНЦ на Glovo: замовлень/міс (травень)</div></div>
     <div class="kpi warn"><div class="n">15,30%</div><div class="l">Ефективна комісія (15% + 2% Bolt+)</div></div>
   </div>
@@ -146,24 +156,24 @@
     <div class="callout" style="border-left-color:var(--accent2)">
       <h3>Розгортання локацій</h3>
       <ul>
-        <li><b>Липень</b> — 40 локацій, старт з <b>27.07</b> (~5 робочих днів, неповний місяць)</li>
-        <li><b>Серпень</b> — 60 (+20)</li>
-        <li><b>Вересень</b> — 78 (+18)</li>
-        <li>Жовтень–грудень — 78 (повне покриття діджитал-активних аптек)</li>
+        <li><b>Серпень 2026</b> — 40 локацій (старт)</li>
+        <li><b>Вересень</b> — 60 (+20)</li>
+        <li><b>Жовтень</b> — 78 (+18)</li>
+        <li>Листопад 2026 – липень 2027 — 78 (повне покриття діджитал-активних аптек)</li>
       </ul>
     </div>
     <div class="callout" style="border-left-color:var(--warn)">
       <h3>Крива виходу на зрілість</h3>
       <ul>
         <li>Нова локація не дає повний обсяг одразу. Частка від зрілого темпу за місяцями роботи: <b>М1 30% · М2 55% · М3 75% · М4 88% · М5 95% · М6 100%</b>.</li>
-        <li>Кожна когорта (лип / сер / вер) виходить на зрілість незалежно, тож змішаний темп замовл./локацію/день зростає з часом.</li>
+        <li>Кожна когорта (сер / вер / жов) виходить на зрілість незалежно, тож змішаний темп замовл./локацію/день зростає з часом.</li>
       </ul>
     </div>
     <div class="callout">
       <h3>Замовлення → GMV → комісія</h3>
       <ul>
-        <li>Середній чек (AOV) = <b>₴600</b>.</li>
-        <li>GMV = замовлення × ₴600.</li>
+        <li>Середній чек (AOV) = <b>₴700</b>.</li>
+        <li>GMV = замовлення × ₴700.</li>
         <li>Комісія Bolt = <b>15% база + 2% Bolt+</b> (лише на ~15% замовлень підписників) → середньозважена <b>15,30%</b>.</li>
       </ul>
     </div>
@@ -173,7 +183,7 @@
         <li><b>Консервативний:</b> Bolt досягає 25% темпу АНЦ на Glovo → <b>2,24 замовл./локацію/день</b>.</li>
         <li><b>Базовий:</b> 40% → <b>3,58 замовл./локацію/день</b>.</li>
         <li><b>Оптимістичний:</b> 65% → <b>5,83 замовл./локацію/день</b>.</li>
-        <li>Прив'язка до АНЦ на Glovo = 9,0 замовл./магазин/день (зрілий).</li>
+        <li>Прив'язка до АНЦ на Glovo = 9,0 замовл./аптеку/день (зрілий).</li>
       </ul>
     </div>
   </div>
@@ -182,16 +192,17 @@
   <!-- BENCHMARKS -->
   <section id="benchmarks">
   <h2 class="section"><span class="bar" style="background:var(--glovo)"></span>Бенчмарки — рітейл на Glovo vs Bolt (травень 2026, реальні дані)</h2>
-  <p class="section-desc">Замовл./магазин/день = замовлення за місяць / кількість магазинів / 31 день. АНЦ ще не на Bolt, тож показані лише його дані по Glovo. Джерело: порівняння по магазинах Glovo vs Bolt.</p>
+  <p class="section-desc">Замовл./магазин/день = замовлення за місяць / кількість магазинів / 31 день. Група АНЦ (4 бренди) ще не на Bolt, тож показані лише дані по Glovo. Джерело: порівняння по магазинах Glovo vs Bolt.</p>
   <table class="matrix">
     <tr>
       <th>Мережа</th><th>Формат</th><th>Glovo замовл. (трав)</th><th>Магазинів</th><th>Glovo /маг/день</th>
       <th>Bolt замовл.</th><th>Bolt магазинів</th><th>Bolt /маг/день</th><th>Bolt % від Glovo</th>
     </tr>
-    <tr class="hl"><td class="axis">АНЦ (група)</td><td>Аптека</td><td>21 670</td><td>78</td><td>9,0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr class="hl"><td class="axis">Група АНЦ (4 бренди)</td><td>Аптека</td><td>21 670</td><td>78</td><td>9,0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
     <tr><td class="axis">· Аптека АНЦ</td><td>Аптека</td><td>16 010</td><td>34</td><td>15,2</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
     <tr><td class="axis">· Kopiyka by ANC</td><td>Аптека</td><td>4 338</td><td>28</td><td>5,0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
     <tr><td class="axis">· Shara by ANC</td><td>Аптека</td><td>1 267</td><td>14</td><td>2,9</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="axis">· Blagodiya by ANC</td><td>Аптека</td><td>55</td><td>2</td><td>0,9</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
     <tr><td class="axis">VARUS</td><td>Супермаркет</td><td>47 586</td><td>55</td><td>27,9</td><td>6 168</td><td>59</td><td>3,4</td><td>12%</td></tr>
     <tr><td class="axis">Kopiyka</td><td>Магазин біля дому</td><td>30 061</td><td>76</td><td>12,8</td><td>1 250</td><td>64</td><td>0,6</td><td>5%</td></tr>
     <tr><td class="axis">Rukavychka</td><td>Магазин біля дому</td><td>10 744</td><td>76</td><td>4,6</td><td>908</td><td>18</td><td>1,6</td><td>35%</td></tr>
@@ -208,7 +219,7 @@
       <h3>Чому 65% в Оптимістичному</h3>
       <ul>
         <li>Рітейл Bolt швидко зростає: <b>+74%</b> замовлень січ→трав 2026 в Україні.</li>
-        <li>АНЦ на Glovo зростає: <b>18,6 → 21,7 тис.</b> замовлень/міс (бер→трав, +16%). З активним промо зрілий темп досягає <b>65%</b> від Glovo (5,83 замовл./локацію/день).</li>
+        <li>Група АНЦ на Glovo зростає: <b>18,6 → 21,7 тис.</b> замовлень/міс (бер→трав, +16%). З активним промо зрілий темп досягає <b>65%</b> від Glovo (5,83 замовл./локацію/день).</li>
       </ul>
     </div>
   </div>
@@ -217,11 +228,11 @@
   <!-- CHARTS -->
   <section id="charts">
   <h2 class="section"><span class="bar"></span>Місячна траєкторія</h2>
-  <p class="section-desc">Прогнозні замовлення та GMV за місяць, лип–гру 2026, три сценарії. Джерело: модель на бенчмарках Glovo vs Bolt.</p>
+  <p class="section-desc">Прогнозні замовлення та GMV за місяць, серп 2026 – лип 2027, три сценарії. Джерело: модель на бенчмарках Glovo vs Bolt.</p>
 
   <div class="chartcard">
     <h3>Замовлення за місяць</h3>
-    <p class="cap">Прогнозовані доставлені замовлення за місяць, лип–гру 2026.</p>
+    <p class="cap">Прогнозовані доставлені замовлення за місяць, серп 2026 – лип 2027.</p>
     <div class="legend">
       <span><span class="dot" style="background:var(--cons)"></span>Консервативний</span>
       <span><span class="dot" style="background:var(--base)"></span>Базовий</span>
@@ -232,7 +243,7 @@
 
   <div class="chartcard">
     <h3>GMV за місяць (₴)</h3>
-    <p class="cap">GMV/міс = замовлення × ₴600. Лип–гру 2026.</p>
+    <p class="cap">GMV/міс = замовлення × ₴700. Серп 2026 – лип 2027.</p>
     <div class="legend">
       <span><span class="dot" style="background:var(--cons)"></span>Консервативний</span>
       <span><span class="dot" style="background:var(--base)"></span>Базовий</span>
@@ -245,60 +256,78 @@
   <!-- CONSERVATIVE -->
   <section id="cons">
   <h2 class="section"><span class="bar" style="background:var(--cons)"></span>Консервативний сценарій</h2>
-  <p class="section-desc">Зрілий темп 2,24 замовл./локацію/день (25% від АНЦ на Glovo). Змішаний темп відображає вихід кожної когорти на зрілість. Липень — неповний місяць (5 днів, старт 27.07).</p>
+  <p class="section-desc">Зрілий темп 2,24 замовл./локацію/день (25% від АНЦ на Glovo). Змішаний темп відображає вихід кожної когорти на зрілість. Старт — серпень 2026.</p>
   <table class="matrix">
     <tr><th>Місяць</th><th>Локацій</th><th>Днів</th><th>Замовл./лок/день</th><th>Замовл./день</th><th>Замовл./міс</th><th>GMV/міс</th></tr>
-    <tr><td class="axis">Липень <span style="color:var(--muted);font-weight:600">(з 27-го)</span></td><td>40</td><td>5</td><td>0,67</td><td>27</td><td>134</td><td>₴80 400</td></tr>
-    <tr><td class="axis">Серпень</td><td>60</td><td>31</td><td>1,05</td><td>63</td><td>1 945</td><td>₴1 167 000</td></tr>
-    <tr><td class="axis">Вересень</td><td>78</td><td>30</td><td>1,33</td><td>104</td><td>3 119</td><td>₴1 871 400</td></tr>
-    <tr><td class="axis">Жовтень</td><td>78</td><td>31</td><td>1,73</td><td>135</td><td>4 174</td><td>₴2 504 400</td></tr>
-    <tr><td class="axis">Листопад</td><td>78</td><td>30</td><td>1,98</td><td>155</td><td>4 645</td><td>₴2 787 000</td></tr>
-    <tr><td class="axis">Грудень</td><td>78</td><td>31</td><td>2,15</td><td>168</td><td>5 198</td><td>₴3 118 800</td></tr>
-    <tr class="total cons"><td class="axis">2 пів. разом</td><td>—</td><td>—</td><td>—</td><td>—</td><td>19 215</td><td>₴11 529 000</td></tr>
+    <tr><td class="axis">Серпень 2026</td><td>40</td><td>31</td><td>0,67</td><td>27</td><td>833</td><td>₴583 100</td></tr>
+    <tr><td class="axis">Вересень</td><td>60</td><td>30</td><td>1,05</td><td>63</td><td>1 882</td><td>₴1 317 400</td></tr>
+    <tr><td class="axis">Жовтень</td><td>78</td><td>31</td><td>1,33</td><td>104</td><td>3 223</td><td>₴2 256 100</td></tr>
+    <tr><td class="axis">Листопад</td><td>78</td><td>30</td><td>1,73</td><td>135</td><td>4 040</td><td>₴2 828 000</td></tr>
+    <tr><td class="axis">Грудень</td><td>78</td><td>31</td><td>1,98</td><td>155</td><td>4 799</td><td>₴3 359 300</td></tr>
+    <tr><td class="axis">Січень 2027</td><td>78</td><td>31</td><td>2,15</td><td>168</td><td>5 198</td><td>₴3 638 600</td></tr>
+    <tr><td class="axis">Лютий</td><td>78</td><td>28</td><td>2,21</td><td>173</td><td>4 837</td><td>₴3 385 900</td></tr>
+    <tr><td class="axis">Березень</td><td>78</td><td>31</td><td>2,24</td><td>175</td><td>5 418</td><td>₴3 792 600</td></tr>
+    <tr><td class="axis">Квітень</td><td>78</td><td>30</td><td>2,24</td><td>175</td><td>5 243</td><td>₴3 670 100</td></tr>
+    <tr><td class="axis">Травень</td><td>78</td><td>31</td><td>2,24</td><td>175</td><td>5 418</td><td>₴3 792 600</td></tr>
+    <tr><td class="axis">Червень</td><td>78</td><td>30</td><td>2,24</td><td>175</td><td>5 243</td><td>₴3 670 100</td></tr>
+    <tr><td class="axis">Липень 2027</td><td>78</td><td>31</td><td>2,24</td><td>175</td><td>5 418</td><td>₴3 792 600</td></tr>
+    <tr class="total cons"><td class="axis">Рік 1 разом</td><td>—</td><td>—</td><td>—</td><td>—</td><td>51 552</td><td>₴36 086 400</td></tr>
   </table>
   </section>
 
   <!-- BASE -->
   <section id="base">
   <h2 class="section"><span class="bar"></span>Базовий сценарій</h2>
-  <p class="section-desc">Зрілий темп 3,58 замовл./локацію/день (40% від АНЦ на Glovo). Липень — неповний місяць (5 днів, старт 27.07).</p>
+  <p class="section-desc">Зрілий темп 3,58 замовл./локацію/день (40% від АНЦ на Glovo). Старт — серпень 2026.</p>
   <table class="matrix">
     <tr><th>Місяць</th><th>Локацій</th><th>Днів</th><th>Замовл./лок/день</th><th>Замовл./день</th><th>Замовл./міс</th><th>GMV/міс</th></tr>
-    <tr><td class="axis">Липень <span style="color:var(--muted);font-weight:600">(з 27-го)</span></td><td>40</td><td>5</td><td>1,08</td><td>43</td><td>215</td><td>₴129 000</td></tr>
-    <tr><td class="axis">Серпень</td><td>60</td><td>31</td><td>1,67</td><td>100</td><td>3 112</td><td>₴1 867 200</td></tr>
-    <tr><td class="axis">Вересень</td><td>78</td><td>30</td><td>2,13</td><td>166</td><td>4 990</td><td>₴2 994 000</td></tr>
-    <tr><td class="axis">Жовтень</td><td>78</td><td>31</td><td>2,76</td><td>215</td><td>6 679</td><td>₴4 007 400</td></tr>
-    <tr><td class="axis">Листопад</td><td>78</td><td>30</td><td>3,18</td><td>248</td><td>7 431</td><td>₴4 458 600</td></tr>
-    <tr><td class="axis">Грудень</td><td>78</td><td>31</td><td>3,44</td><td>268</td><td>8 317</td><td>₴4 990 200</td></tr>
-    <tr class="total"><td class="axis">2 пів. разом</td><td>—</td><td>—</td><td>—</td><td>—</td><td>30 744</td><td>₴18 446 400</td></tr>
+    <tr><td class="axis">Серпень 2026</td><td>40</td><td>31</td><td>1,08</td><td>43</td><td>1 334</td><td>₴933 800</td></tr>
+    <tr><td class="axis">Вересень</td><td>60</td><td>30</td><td>1,67</td><td>100</td><td>3 011</td><td>₴2 107 700</td></tr>
+    <tr><td class="axis">Жовтень</td><td>78</td><td>31</td><td>2,13</td><td>166</td><td>5 156</td><td>₴3 609 200</td></tr>
+    <tr><td class="axis">Листопад</td><td>78</td><td>30</td><td>2,76</td><td>215</td><td>6 463</td><td>₴4 524 100</td></tr>
+    <tr><td class="axis">Грудень</td><td>78</td><td>31</td><td>3,18</td><td>248</td><td>7 679</td><td>₴5 375 300</td></tr>
+    <tr><td class="axis">Січень 2027</td><td>78</td><td>31</td><td>3,44</td><td>268</td><td>8 317</td><td>₴5 821 900</td></tr>
+    <tr><td class="axis">Лютий</td><td>78</td><td>28</td><td>3,54</td><td>276</td><td>7 739</td><td>₴5 417 300</td></tr>
+    <tr><td class="axis">Березень</td><td>78</td><td>31</td><td>3,58</td><td>280</td><td>8 668</td><td>₴6 067 600</td></tr>
+    <tr><td class="axis">Квітень</td><td>78</td><td>30</td><td>3,58</td><td>280</td><td>8 388</td><td>₴5 871 600</td></tr>
+    <tr><td class="axis">Травень</td><td>78</td><td>31</td><td>3,58</td><td>280</td><td>8 668</td><td>₴6 067 600</td></tr>
+    <tr><td class="axis">Червень</td><td>78</td><td>30</td><td>3,58</td><td>280</td><td>8 388</td><td>₴5 871 600</td></tr>
+    <tr><td class="axis">Липень 2027</td><td>78</td><td>31</td><td>3,58</td><td>280</td><td>8 668</td><td>₴6 067 600</td></tr>
+    <tr class="total"><td class="axis">Рік 1 разом</td><td>—</td><td>—</td><td>—</td><td>—</td><td>82 479</td><td>₴57 735 300</td></tr>
   </table>
   </section>
 
   <!-- OPTIMISTIC -->
   <section id="optimistic">
   <h2 class="section"><span class="bar" style="background:var(--opt)"></span>Оптимістичний сценарій</h2>
-  <p class="section-desc">Зрілий темп 5,83 замовл./локацію/день (65% від АНЦ на Glovo), швидший вихід за підтримки промо. Липень — неповний місяць (5 днів, старт 27.07).</p>
+  <p class="section-desc">Зрілий темп 5,83 замовл./локацію/день (65% від АНЦ на Glovo), швидший вихід за підтримки промо. Старт — серпень 2026.</p>
   <table class="matrix">
     <tr><th>Місяць</th><th>Локацій</th><th>Днів</th><th>Замовл./лок/день</th><th>Замовл./день</th><th>Замовл./міс</th><th>GMV/міс</th></tr>
-    <tr><td class="axis">Липень <span style="color:var(--muted);font-weight:600">(з 27-го)</span></td><td>40</td><td>5</td><td>1,75</td><td>70</td><td>350</td><td>₴210 000</td></tr>
-    <tr><td class="axis">Серпень</td><td>60</td><td>31</td><td>2,72</td><td>163</td><td>5 056</td><td>₴3 033 600</td></tr>
-    <tr><td class="axis">Вересень</td><td>78</td><td>30</td><td>3,47</td><td>270</td><td>8 109</td><td>₴4 865 400</td></tr>
-    <tr><td class="axis">Жовтень</td><td>78</td><td>31</td><td>4,49</td><td>350</td><td>10 853</td><td>₴6 511 800</td></tr>
-    <tr><td class="axis">Листопад</td><td>78</td><td>30</td><td>5,16</td><td>403</td><td>12 076</td><td>₴7 245 600</td></tr>
-    <tr><td class="axis">Грудень</td><td>78</td><td>31</td><td>5,59</td><td>436</td><td>13 515</td><td>₴8 109 000</td></tr>
-    <tr class="total opt"><td class="axis">2 пів. разом</td><td>—</td><td>—</td><td>—</td><td>—</td><td>49 959</td><td>₴29 975 400</td></tr>
+    <tr><td class="axis">Серпень 2026</td><td>40</td><td>31</td><td>1,75</td><td>70</td><td>2 167</td><td>₴1 516 900</td></tr>
+    <tr><td class="axis">Вересень</td><td>60</td><td>30</td><td>2,72</td><td>163</td><td>4 893</td><td>₴3 425 100</td></tr>
+    <tr><td class="axis">Жовтень</td><td>78</td><td>31</td><td>3,47</td><td>270</td><td>8 379</td><td>₴5 865 300</td></tr>
+    <tr><td class="axis">Листопад</td><td>78</td><td>30</td><td>4,49</td><td>350</td><td>10 503</td><td>₴7 352 100</td></tr>
+    <tr><td class="axis">Грудень</td><td>78</td><td>31</td><td>5,16</td><td>403</td><td>12 478</td><td>₴8 734 600</td></tr>
+    <tr><td class="axis">Січень 2027</td><td>78</td><td>31</td><td>5,59</td><td>436</td><td>13 515</td><td>₴9 460 500</td></tr>
+    <tr><td class="axis">Лютий</td><td>78</td><td>28</td><td>5,76</td><td>449</td><td>12 576</td><td>₴8 803 200</td></tr>
+    <tr><td class="axis">Березень</td><td>78</td><td>31</td><td>5,83</td><td>454</td><td>14 086</td><td>₴9 860 200</td></tr>
+    <tr><td class="axis">Квітень</td><td>78</td><td>30</td><td>5,83</td><td>454</td><td>13 631</td><td>₴9 541 700</td></tr>
+    <tr><td class="axis">Травень</td><td>78</td><td>31</td><td>5,83</td><td>454</td><td>14 086</td><td>₴9 860 200</td></tr>
+    <tr><td class="axis">Червень</td><td>78</td><td>30</td><td>5,83</td><td>454</td><td>13 631</td><td>₴9 541 700</td></tr>
+    <tr><td class="axis">Липень 2027</td><td>78</td><td>31</td><td>5,83</td><td>454</td><td>14 086</td><td>₴9 860 200</td></tr>
+    <tr class="total opt"><td class="axis">Рік 1 разом</td><td>—</td><td>—</td><td>—</td><td>—</td><td>134 031</td><td>₴93 821 700</td></tr>
   </table>
   </section>
 
   <!-- COMMISSION -->
   <section id="commission">
-  <h2 class="section"><span class="bar" style="background:var(--warn)"></span>Комісія Bolt за сценаріями (2 пів. 2026)</h2>
+  <h2 class="section"><span class="bar" style="background:var(--warn)"></span>Комісія Bolt за сценаріями (рік 1)</h2>
   <p class="section-desc">Дохід Bolt = GMV × 15,30% (15% база + 2% Bolt+ на ~15% замовлень підписників). Повністю інкрементальний обсяг поверх Glovo та офлайну.</p>
   <table class="matrix">
-    <tr><th>Сценарій</th><th>% від Glovo</th><th>Замовлень 2 пів.</th><th>GMV 2 пів.</th><th>Комісія Bolt @15,30%</th></tr>
-    <tr class="total cons"><td class="axis">Консервативний</td><td>25%</td><td>19 215</td><td>₴11 529 000</td><td>₴1 763 937</td></tr>
-    <tr class="total"><td class="axis">Базовий</td><td>40%</td><td>30 744</td><td>₴18 446 400</td><td>₴2 822 299</td></tr>
-    <tr class="total opt"><td class="axis">Оптимістичний</td><td>65%</td><td>49 959</td><td>₴29 975 400</td><td>₴4 586 236</td></tr>
+    <tr><th>Сценарій</th><th>% від Glovo</th><th>Замовлень рік 1</th><th>GMV рік 1</th><th>Комісія Bolt @15,30%</th></tr>
+    <tr class="total cons"><td class="axis">Консервативний</td><td>25%</td><td>51 552</td><td>₴36 086 400</td><td>₴5 521 219</td></tr>
+    <tr class="total"><td class="axis">Базовий</td><td>40%</td><td>82 479</td><td>₴57 735 300</td><td>₴8 833 501</td></tr>
+    <tr class="total opt"><td class="axis">Оптимістичний</td><td>65%</td><td>134 031</td><td>₴93 821 700</td><td>₴14 354 720</td></tr>
   </table>
   </section>
 
@@ -307,19 +336,19 @@
   <h2 class="section"><span class="bar"></span>Ключові висновки</h2>
   <div class="two">
     <div class="callout">
-      <h3>Підсумок 2 пів. 2026</h3>
+      <h3>Підсумок рік 1 (серп 2026 – лип 2027)</h3>
       <ul>
-        <li>Консервативний: <b>~19,2 тис.</b> замовлень / <b>₴11,5 млн</b> GMV.</li>
-        <li>Базовий: <b>~30,7 тис.</b> замовлень / <b>₴18,4 млн</b> GMV.</li>
-        <li>Оптимістичний: <b>~50,0 тис.</b> замовлень / <b>₴30,0 млн</b> GMV.</li>
-        <li>Липень відображає лише ~5 робочих днів (старт 27.07).</li>
+        <li>Консервативний: <b>~51,6 тис.</b> замовлень / <b>₴36,1 млн</b> GMV.</li>
+        <li>Базовий: <b>~82,5 тис.</b> замовлень / <b>₴57,7 млн</b> GMV.</li>
+        <li>Оптимістичний: <b>~134,0 тис.</b> замовлень / <b>₴93,8 млн</b> GMV.</li>
+        <li>Дані по всіх 4 брендах: Аптека АНЦ, Kopiyka/Shara/Blagodiya by ANC.</li>
       </ul>
     </div>
     <div class="callout" style="border-left-color:var(--opt)">
-      <h3>Run-rate у грудні</h3>
+      <h3>Зрілий run-rate</h3>
       <ul>
-        <li>78 локацій дають <b>168–436 замовлень/день</b> (2,15–5,59 на локацію).</li>
-        <li>Для довідки, АНЦ на Glovo працює на 9,0 замовл./магазин/день.</li>
+        <li>78 локацій дають <b>175–454 замовлення/день</b> (2,24–5,83 на локацію) на зрілості.</li>
+        <li>Для довідки, АНЦ на Glovo працює на 9,0 замовл./аптеку/день.</li>
       </ul>
     </div>
     <div class="callout" style="border-left-color:var(--warn)">
@@ -332,33 +361,33 @@
     <div class="callout" style="border-left-color:var(--glovo)">
       <h3>Запас ринку</h3>
       <ul>
-        <li>АНЦ на Glovo робить ~21,7 тис. замовлень/міс на 78 магазинах.</li>
-        <li>Навіть Базовий сценарій у грудні досягає ~38% цього обсягу — значний запас для 2027.</li>
+        <li>Група АНЦ на Glovo робить ~21,7 тис. замовлень/міс на 78 магазинах.</li>
+        <li>Навіть Базовий сценарій на зрілості (~8,7 тис./міс) — це ~40% обсягу Glovo, тобто значний запас.</li>
       </ul>
     </div>
   </div>
   </section>
 
   <footer>
-    Бенчмарки: реальні дані по магазинах Glovo vs Bolt, травень 2026 (<a href="https://yuliianikolaieva.github.io/getplaced-report/" target="_blank" rel="noopener">джерело-звіт</a>). Прогноз — сценарна модель на припущеннях вище (крива виходу, темп на магазин відносно Glovo, AOV ₴600, комісія 15%+2% Bolt+). Це планова оцінка, а не факт.
+    Бенчмарки: реальні дані по магазинах Glovo vs Bolt, травень 2026 (<a href="https://yuliianikolaieva.github.io/getplaced-report/" target="_blank" rel="noopener">джерело-звіт</a>). Дані по групі АНЦ: Аптека АНЦ + Kopiyka/Shara/Blagodiya by ANC. Прогноз — сценарна модель на припущеннях вище (крива виходу, темп на магазин відносно Glovo, AOV ₴700, комісія 15%+2% Bolt+). Це планова оцінка, а не факт.
   </footer>
 
 </div>
 
 <script>
 (function(){
-  var months=["Лип","Сер","Вер","Жов","Лис","Гру"];
-  var cons=[134,1945,3119,4174,4645,5198];
-  var base=[215,3112,4990,6679,7431,8317];
-  var opt=[350,5056,8109,10853,12076,13515];
-  var AOV=600;
+  var months=["Сер","Вер","Жов","Лис","Гру","Січ","Лют","Бер","Кві","Тра","Чер","Лип"];
+  var cons=[833,1882,3223,4040,4799,5198,4837,5418,5243,5418,5243,5418];
+  var base=[1334,3011,5156,6463,7679,8317,7739,8668,8388,8668,8388,8668];
+  var opt=[2167,4893,8379,10503,12478,13515,12576,14086,13631,14086,13631,14086];
+  var AOV=700;
   var consGmv=cons.map(function(v){return v*AOV;});
   var baseGmv=base.map(function(v){return v*AOV;});
   var optGmv=opt.map(function(v){return v*AOV;});
 
   function drawGrouped(id, series, colors, dark, fmt, vfmt){
     var svg=document.getElementById(id);
-    var W=720,H=300,padL=70,padR=16,padT=30,padB=34;
+    var W=720,H=300,padL=72,padR=12,padT=30,padB=34;
     var plotW=W-padL-padR, plotH=H-padT-padB;
     var all=[]; series.forEach(function(s){all=all.concat(s);});
     var max=Math.max.apply(null,all);
@@ -374,13 +403,9 @@
       var t=el("text",{x:padL-8,y:y+4,"text-anchor":"end","font-size":11,fill:"#5d6b85"});
       t.textContent=fmt(val);svg.appendChild(t);
     }
-    var n=months.length, groupW=plotW/n, ns2=series.length, barW=Math.min(20,groupW*0.20), gap=4;
+    var n=months.length, groupW=plotW/n, ns2=series.length, barW=Math.min(13,groupW*0.24), gap=2;
     var totalW=ns2*barW+(ns2-1)*gap;
-    function bar(x,h,fill){ svg.appendChild(el("rect",{x:x,y:padT+plotH-h,width:barW,height:h,rx:3,fill:fill})); }
-    function dataLabel(cx,h,txt,fill){
-      var lb=el("text",{x:cx,y:padT+plotH-h-5,"text-anchor":"middle","font-size":8.5,"font-weight":700,fill:fill});
-      lb.textContent=txt;svg.appendChild(lb);
-    }
+    function bar(x,h,fill){ svg.appendChild(el("rect",{x:x,y:padT+plotH-h,width:barW,height:h,rx:2,fill:fill})); }
     for(var j=0;j<n;j++){
       var cx=padL+groupW*j+groupW/2;
       var x0=cx-totalW/2;
@@ -388,10 +413,17 @@
         var x=x0+k*(barW+gap);
         var h=(series[k][j]/niceMax)*plotH;
         bar(x,h,colors[k]);
-        dataLabel(x+barW/2,h,vfmt(series[k][j]),dark[k]);
       }
-      var lab=el("text",{x:cx,y:H-12,"text-anchor":"middle","font-size":12,fill:"#33425d"});
+      var lab=el("text",{x:cx,y:H-12,"text-anchor":"middle","font-size":11,fill:"#33425d"});
       lab.textContent=months[j];svg.appendChild(lab);
+    }
+    // value labels only for last month (maturity) to avoid clutter
+    var lastj=n-1, cxL=padL+groupW*lastj+groupW/2, x0L=cxL-totalW/2;
+    for(var k2=0;k2<ns2;k2++){
+      var xL=x0L+k2*(barW+gap);
+      var hL=(series[k2][lastj]/niceMax)*plotH;
+      var lb=el("text",{x:xL+barW/2,y:padT+plotH-hL-4,"text-anchor":"middle","font-size":8.5,"font-weight":700,fill:dark[k2]});
+      lb.textContent=vfmt(series[k2][lastj]);svg.appendChild(lb);
     }
   }
   function kfmt(v){ if(v>=1000) return (v/1000).toFixed(v>=10000?0:1)+"т"; return Math.round(v); }
